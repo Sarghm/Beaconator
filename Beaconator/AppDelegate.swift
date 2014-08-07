@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
-    var window: UIWindow?
-
-
+    
+    // Set as an ! rather than ?. This is because we need to declare the window will definitely exist, and we don't want to run the app if the window returns a null!
+    
+    var window: UIWindow!
+    
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Init and assign the root view controller
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        var rootVC = ViewController(nibName: nil, bundle: nil)
+        window.rootViewController = rootVC
+        window.makeKeyAndVisible()
+        
         return true
     }
 
@@ -39,6 +48,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication!) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: CLLocationManager Delegate
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        // Update succeeded! Print locations:
+        if locations {
+            print(locations)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        // Failed with error. Print error to the console.
+        if error {
+            print(error.description)
+        }
     }
 
 
