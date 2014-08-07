@@ -3,9 +3,7 @@ Beaconator
 
 A Swift app utilising the iBeacon API to monitor and range nearby iBeacons
 
-==========
-
-v0.1
+## v0.1
 
 ==========
 
