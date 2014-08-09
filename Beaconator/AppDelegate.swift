@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Init and assign the root view controller
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        var rootVC = ViewController(nibName: nil, bundle: nil)
+        var rootVC = MainMenu(nibName: nil, bundle: nil)
         window.rootViewController = rootVC
         window.makeKeyAndVisible()
         
