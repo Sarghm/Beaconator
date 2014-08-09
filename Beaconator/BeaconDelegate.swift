@@ -82,7 +82,7 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         
         if beacons.count > 0 {
             
-            var discoveredBeacon:CLBeaconRegion = beacons[0]
+            var discoveredBeacon:CLBeacon = beacons[0]
             // Found a beacon - stop ranging!
             manager.stopRangingBeaconsInRegion(region)
             let alert = UIAlertView(title: "Beacon found!", message: "Found beacon with UUID: \(beacons[0])", delegate: nil, cancelButtonTitle: "Awesome!")
