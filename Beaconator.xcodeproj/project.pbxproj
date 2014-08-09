@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A907E62C1993F62D0066BDE7 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907E62B1993F62D0066BDE7 /* TableViewDelegate.swift */; };
-		A907E62F1995EFE70066BDE7 /* BCUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907E62E1995EFE70066BDE7 /* BCUser.swift */; };
-		A907E6311995F04B0066BDE7 /* BCDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907E6301995F04B0066BDE7 /* BCDeal.swift */; };
 		A9466E2D1993C408003D6BFC /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = A9466E2C1993C408003D6BFC /* TODO */; };
 		A950E4E61991F8B90053F81A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4E51991F8B90053F81A /* AppDelegate.swift */; };
-		A950E4E81991F8B90053F81A /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4E71991F8B90053F81A /* MainMenu.swift */; };
+		A950E4E81991F8B90053F81A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4E71991F8B90053F81A /* ViewController.swift */; };
 		A950E4ED1991F8B90053F81A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A950E4EC1991F8B90053F81A /* Images.xcassets */; };
 		A950E4F91991F8B90053F81A /* BeaconatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4F81991F8B90053F81A /* BeaconatorTests.swift */; };
 		A950E5031991FA450053F81A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A950E5021991FA450053F81A /* CoreBluetooth.framework */; };
@@ -30,14 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A907E62B1993F62D0066BDE7 /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
-		A907E62E1995EFE70066BDE7 /* BCUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCUser.swift; sourceTree = "<group>"; };
-		A907E6301995F04B0066BDE7 /* BCDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCDeal.swift; sourceTree = "<group>"; };
 		A9466E2C1993C408003D6BFC /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		A950E4E01991F8B90053F81A /* Beaconator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beaconator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A950E4E41991F8B90053F81A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A950E4E51991F8B90053F81A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A950E4E71991F8B90053F81A /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		A950E4E71991F8B90053F81A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A950E4EC1991F8B90053F81A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A950E4F21991F8B90053F81A /* BeaconatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A950E4F71991F8B90053F81A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,32 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A907E6291993F5800066BDE7 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				A9C22736199333E50021E86B /* BeaconDelegate.swift */,
-				A907E62B1993F62D0066BDE7 /* TableViewDelegate.swift */,
-			);
-			name = Delegates;
-			sourceTree = "<group>";
-		};
-		A907E62A1993F5890066BDE7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A950E4E71991F8B90053F81A /* MainMenu.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		A907E62D1995EFCF0066BDE7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A907E62E1995EFE70066BDE7 /* BCUser.swift */,
-				A907E6301995F04B0066BDE7 /* BCDeal.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		A950E4D71991F8B90053F81A = {
 			isa = PBXGroup;
 			children = (
@@ -114,10 +82,9 @@
 		A950E4E21991F8B90053F81A /* Beaconator */ = {
 			isa = PBXGroup;
 			children = (
-				A907E62D1995EFCF0066BDE7 /* Models */,
-				A907E62A1993F5890066BDE7 /* Views */,
-				A907E6291993F5800066BDE7 /* Delegates */,
 				A950E4E51991F8B90053F81A /* AppDelegate.swift */,
+				A950E4E71991F8B90053F81A /* ViewController.swift */,
+				A9C22736199333E50021E86B /* BeaconDelegate.swift */,
 				A9466E2C1993C408003D6BFC /* TODO */,
 				A950E4EC1991F8B90053F81A /* Images.xcassets */,
 				A950E4E31991F8B90053F81A /* Supporting Files */,
@@ -264,11 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A907E62C1993F62D0066BDE7 /* TableViewDelegate.swift in Sources */,
 				A9C22737199333E50021E86B /* BeaconDelegate.swift in Sources */,
-				A907E6311995F04B0066BDE7 /* BCDeal.swift in Sources */,
-				A950E4E81991F8B90053F81A /* MainMenu.swift in Sources */,
-				A907E62F1995EFE70066BDE7 /* BCUser.swift in Sources */,
+				A950E4E81991F8B90053F81A /* ViewController.swift in Sources */,
 				A950E4E61991F8B90053F81A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
