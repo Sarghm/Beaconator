@@ -38,6 +38,7 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         case CLAuthorizationStatus.Authorized:
             
             locationManager.startUpdatingLocation()
+            rangeBeacon(beaconRegion)
             monitorBeacon(beaconRegion)
             currentStatus = "Began monitoring..."
             print("Begin monitoring...")
@@ -54,6 +55,7 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
             print("Default result")
             // By default, assume failure/on-the-fence logic
             locationManager.startUpdatingLocation()
+            rangeBeacon(beaconRegion)
             monitorBeacon(beaconRegion)
             
             currentStatus = "Began monitoring..."
