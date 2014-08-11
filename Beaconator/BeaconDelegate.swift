@@ -62,8 +62,8 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
             print("Began monitoring...")
         }
         
-        // Hacky solution - Force beginning of monitoring for region
-         self.locationManager(self.locationManager, didStartMonitoringForRegion: beaconRegion)
+        // Hacky solution - Force beginning of monitoring for region, allows us to avoid moving out and in range
+        // self.locationManager(self.locationManager, didStartMonitoringForRegion: beaconRegion)
         
     }
     
@@ -72,6 +72,7 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         print("Began ranging")
         currentStatus = "Beacon ranging..."
         locationManager.startRangingBeaconsInRegion(region)
+        
     }
     
     func monitorBeacon(region: CLRegion) {
@@ -79,6 +80,20 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         print("Began monitoring")
         currentStatus = "Began monitoring..."
         locationManager.startMonitoringForRegion(region)
+        
+    }
+    
+    func fireLocalNotification() {
+        // Found a region - push the notification and the voucher screen if the app is open
+        var notification = UILocalNotification()
+        notification.alertAction = "Open Beaconator"
+        notification.alertBody = "You've discovered a beacon!"
+        currentStatus = "Discovered beacon!"
+        notification.fireDate = nil
+        
+        // Get active app instance and schedule the notification to trigger immediately
+        var app = UIApplication.sharedApplication()
+        app.scheduleLocalNotification(notification)
     }
     
     // MARK: CLLocation Delegate
@@ -137,11 +152,7 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         alertView.show()
         manager.startRangingBeaconsInRegion(region as CLBeaconRegion)
         
-        // Found a region - push the notification and the voucher screen if the app is open
-        var notification = UILocalNotification()
-        notification.alertAction = "Open Beaconator"
-        notification.alertBody = "You've discovered a beacon!"
-        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+        fireLocalNotification()
         
     }
     
