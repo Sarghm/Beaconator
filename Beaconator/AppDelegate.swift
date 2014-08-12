@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = rootVC
         window.makeKeyAndVisible()
         
+        // Setup Parse
+        
+        Parse.setApplicationId(Config.getParseKey("accessKey"), clientKey: Config.getParseKey("clientKey"))
+        
         return true
     }
 

@@ -28,6 +28,13 @@ Vote for song requests
                     - Authenticates that user is eligible for deal
                     - Server adds deal to "redeemed" array for user
 
+UUID:
+
+- UUID always remains the same - helps the app know where it's looking for beacons.
+- The major will be for the store.
+- Minor can also help us create more unique identifiers for multiple stores; maybe the backend web end allows you to shift between the vouchers you want to show (so there's only ever one at one point?)
+- ?? - The minor will be for the active voucher?
+
 VIEWS
 
 Main Menu
@@ -73,3 +80,5 @@ BCStore
  - [Deals]
 
 Has many: Deals (Store-specific)
+
+____

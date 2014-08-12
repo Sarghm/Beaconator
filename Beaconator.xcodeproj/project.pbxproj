@@ -17,6 +17,19 @@
 		A950E4F91991F8B90053F81A /* BeaconatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4F81991F8B90053F81A /* BeaconatorTests.swift */; };
 		A950E5031991FA450053F81A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A950E5021991FA450053F81A /* CoreBluetooth.framework */; };
 		A9C22737199333E50021E86B /* BeaconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C22736199333E50021E86B /* BeaconDelegate.swift */; };
+		A9F2A8A3199942D20015130A /* DealScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2A8A2199942D20015130A /* DealScreen.swift */; };
+		A9F2A8A4199945890015130A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A950E5051991FB200053F81A /* CoreLocation.framework */; };
+		A9F2A8A6199945920015130A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8A5199945920015130A /* AudioToolbox.framework */; };
+		A9F2A8A8199945980015130A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8A7199945980015130A /* CFNetwork.framework */; };
+		A9F2A8AA1999459F0015130A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8A91999459F0015130A /* CoreGraphics.framework */; };
+		A9F2A8AC199945A70015130A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8AB199945A70015130A /* libz.dylib */; };
+		A9F2A8AE199945AE0015130A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8AD199945AE0015130A /* MobileCoreServices.framework */; };
+		A9F2A8B0199945B50015130A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8AF199945B50015130A /* QuartzCore.framework */; };
+		A9F2A8B2199945BE0015130A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8B1199945BE0015130A /* Security.framework */; };
+		A9F2A8B4199945C50015130A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8B3199945C50015130A /* StoreKit.framework */; };
+		A9F2A8B6199945CD0015130A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8B5199945CD0015130A /* SystemConfiguration.framework */; };
+		A9F2A8B8199945FE0015130A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2A8B7199945FD0015130A /* Parse.framework */; };
+		A9F2A8BD199A7E430015130A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2A8BC199A7E430015130A /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +58,19 @@
 		A950E5021991FA450053F81A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A950E5051991FB200053F81A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A9C22736199333E50021E86B /* BeaconDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDelegate.swift; sourceTree = "<group>"; };
+		A9F2A8A2199942D20015130A /* DealScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealScreen.swift; sourceTree = "<group>"; };
+		A9F2A8A5199945920015130A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A9F2A8A7199945980015130A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A9F2A8A91999459F0015130A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9F2A8AB199945A70015130A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A9F2A8AD199945AE0015130A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A9F2A8AF199945B50015130A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A9F2A8B1199945BE0015130A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A9F2A8B3199945C50015130A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A9F2A8B5199945CD0015130A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A9F2A8B7199945FD0015130A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		A9F2A8B91999464B0015130A /* Beaconator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Beaconator-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		A9F2A8BC199A7E430015130A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +78,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F2A8B6199945CD0015130A /* SystemConfiguration.framework in Frameworks */,
+				A9F2A8B4199945C50015130A /* StoreKit.framework in Frameworks */,
+				A9F2A8B2199945BE0015130A /* Security.framework in Frameworks */,
+				A9F2A8B0199945B50015130A /* QuartzCore.framework in Frameworks */,
+				A9F2A8AE199945AE0015130A /* MobileCoreServices.framework in Frameworks */,
+				A9F2A8AC199945A70015130A /* libz.dylib in Frameworks */,
+				A9F2A8AA1999459F0015130A /* CoreGraphics.framework in Frameworks */,
+				A9F2A8A8199945980015130A /* CFNetwork.framework in Frameworks */,
+				A9F2A8A6199945920015130A /* AudioToolbox.framework in Frameworks */,
+				A9F2A8A4199945890015130A /* CoreLocation.framework in Frameworks */,
+				A9F2A8B8199945FE0015130A /* Parse.framework in Frameworks */,
 				A950E5031991FA450053F81A /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +106,8 @@
 		A907E6291993F5800066BDE7 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				A9F2A8B91999464B0015130A /* Beaconator-Bridging-Header.h */,
+				A950E4E51991F8B90053F81A /* AppDelegate.swift */,
 				A9C22736199333E50021E86B /* BeaconDelegate.swift */,
 				A907E62B1993F62D0066BDE7 /* TableViewDelegate.swift */,
 			);
@@ -79,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A950E4E71991F8B90053F81A /* MainMenu.swift */,
+				A9F2A8A2199942D20015130A /* DealScreen.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -117,10 +157,10 @@
 				A907E62D1995EFCF0066BDE7 /* Models */,
 				A907E62A1993F5890066BDE7 /* Views */,
 				A907E6291993F5800066BDE7 /* Delegates */,
-				A950E4E51991F8B90053F81A /* AppDelegate.swift */,
 				A9466E2C1993C408003D6BFC /* TODO */,
 				A950E4EC1991F8B90053F81A /* Images.xcassets */,
 				A950E4E31991F8B90053F81A /* Supporting Files */,
+				A9F2A8BC199A7E430015130A /* Config.swift */,
 			);
 			path = Beaconator;
 			sourceTree = "<group>";
@@ -153,6 +193,16 @@
 		A950E5041991FA4C0053F81A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9F2A8B7199945FD0015130A /* Parse.framework */,
+				A9F2A8B5199945CD0015130A /* SystemConfiguration.framework */,
+				A9F2A8B3199945C50015130A /* StoreKit.framework */,
+				A9F2A8B1199945BE0015130A /* Security.framework */,
+				A9F2A8AF199945B50015130A /* QuartzCore.framework */,
+				A9F2A8AD199945AE0015130A /* MobileCoreServices.framework */,
+				A9F2A8AB199945A70015130A /* libz.dylib */,
+				A9F2A8A91999459F0015130A /* CoreGraphics.framework */,
+				A9F2A8A7199945980015130A /* CFNetwork.framework */,
+				A9F2A8A5199945920015130A /* AudioToolbox.framework */,
 				A950E5051991FB200053F81A /* CoreLocation.framework */,
 				A950E5021991FA450053F81A /* CoreBluetooth.framework */,
 			);
@@ -267,7 +317,9 @@
 				A907E62C1993F62D0066BDE7 /* TableViewDelegate.swift in Sources */,
 				A9C22737199333E50021E86B /* BeaconDelegate.swift in Sources */,
 				A907E6311995F04B0066BDE7 /* BCDeal.swift in Sources */,
+				A9F2A8A3199942D20015130A /* DealScreen.swift in Sources */,
 				A950E4E81991F8B90053F81A /* MainMenu.swift in Sources */,
+				A9F2A8BD199A7E430015130A /* Config.swift in Sources */,
 				A907E62F1995EFE70066BDE7 /* BCUser.swift in Sources */,
 				A950E4E61991F8B90053F81A /* AppDelegate.swift in Sources */,
 			);
@@ -374,11 +426,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Beaconator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Beaconator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -387,11 +448,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Beaconator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Beaconator-Bridging-Header.h";
 			};
 			name = Release;
 		};

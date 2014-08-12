@@ -13,13 +13,13 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var mainMenu:MainMenu!
-    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "6B358BF5-8236-4523-BF02-0F8E2552BCC3"), identifier: "Identifier")
+    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "6B358BF5-8236-4523-BF02-0F8E2552BCC3"), identifier: "AppUUID")
     var currentStatus:String? {
         didSet {
             mainMenu?.statusLabel?.text = currentStatus
         }
     }
-    
+
     override init() {
         super.init()
         
@@ -33,37 +33,6 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         if (locationManager.respondsToSelector("requestAlwaysAuthorization")) {
             locationManager.requestAlwaysAuthorization()
         }
-        
-        switch CLLocationManager.authorizationStatus() {
-        case CLAuthorizationStatus.Authorized:
-            
-            locationManager.startUpdatingLocation()
-            rangeBeacon(beaconRegion)
-            monitorBeacon(beaconRegion)
-            currentStatus = "Began monitoring..."
-            print("Begin monitoring...")
-            
-            // Code for successful authorization
-            
-        case CLAuthorizationStatus.Denied:
-            
-            currentStatus = "Authorization status denied!"
-            print("Denied!")
-            // Code for failed authorization - alert the user
-            
-        default:
-            print("Default result")
-            // By default, assume failure/on-the-fence logic
-            locationManager.startUpdatingLocation()
-            rangeBeacon(beaconRegion)
-            monitorBeacon(beaconRegion)
-            
-            currentStatus = "Began monitoring..."
-            print("Began monitoring...")
-        }
-        
-        // Hacky solution - Force beginning of monitoring for region, allows us to avoid moving out and in range
-        // self.locationManager(self.locationManager, didStartMonitoringForRegion: beaconRegion)
         
     }
     
@@ -85,6 +54,13 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
     
     func fireLocalNotification() {
         // Found a region - push the notification and the voucher screen if the app is open
+        
+        var app = UIApplication.sharedApplication()
+        
+        // Check that the app is not already active before firing the notification - we don't want to fire it if the app's open
+        
+        if (app.applicationState != UIApplicationState.Active) {
+        
         var notification = UILocalNotification()
         notification.alertAction = "Open Beaconator"
         notification.alertBody = "You've discovered a beacon!"
@@ -92,22 +68,47 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         notification.fireDate = nil
         
         // Get active app instance and schedule the notification to trigger immediately
-        var app = UIApplication.sharedApplication()
         app.scheduleLocalNotification(notification)
+            
+        }
     }
     
     // MARK: CLLocation Delegate
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+
         switch status {
         case CLAuthorizationStatus.Authorized:
-            print("Now authorized!")
-            currentStatus = "Authorization successful!"
+            
+            locationManager.startUpdatingLocation()
+            rangeBeacon(beaconRegion)
+            monitorBeacon(beaconRegion)
+            currentStatus = "Began monitoring..."
+            print("Begin monitoring...")
+            
+            // Code for successful authorization
+            
+        case CLAuthorizationStatus.Denied:
+            
+            currentStatus = "Authorization status denied!"
+            print("Denied!")
+            // Code for failed authorization - alert the user
             
         default:
-            print("Authorization failed.")
-            currentStatus = "Authorization failed."
+            
+            print("Default result")
+            // By default, assume failure/on-the-fence logic
+            locationManager.startUpdatingLocation()
+            rangeBeacon(beaconRegion)
+            monitorBeacon(beaconRegion)
+            
+            currentStatus = "Began monitoring..."
+            print("Began monitoring...")
         }
+        
+        // Hacky solution - Force beginning of monitoring for region, allows us to avoid moving out and in range
+        // self.locationManager(self.locationManager, didStartMonitoringForRegion: beaconRegion)
+        
     }
     
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [CLBeacon]!, inRegion region: CLBeaconRegion!) {
@@ -118,8 +119,13 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
             var discoveredBeacon:CLBeacon = beacons[0]
             // Found a beacon - stop ranging!
             manager.stopRangingBeaconsInRegion(region)
-            let alert = UIAlertView(title: "Beacon found!", message: "Found beacon with UUID: \(discoveredBeacon)", delegate: nil, cancelButtonTitle: "Awesome!")
+            let alert = UIAlertView(title: "Beacon found!", message: "Found beacon with UUID: \(discoveredBeacon.proximityUUID)", delegate: nil, cancelButtonTitle: "Awesome!")
             alert.show()
+            
+            let dealScreen = DealScreen(nibName: nil, bundle: nil)
+            dealScreen.setupDealWithBeacon(discoveredBeacon)
+            mainMenu.presentViewController(dealScreen, animated: true, completion: nil)
+            
         }
         
     }
@@ -151,7 +157,6 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         let alertView = UIAlertView(title: "Entered Region", message: "Entered. Current regions: \(manager.monitoredRegions)", delegate: nil, cancelButtonTitle: "Cool")
         alertView.show()
         manager.startRangingBeaconsInRegion(region as CLBeaconRegion)
-        
         fireLocalNotification()
         
     }
