@@ -54,18 +54,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+        let dealScreen = DealScreen(nibName: nil, bundle: nil)
+        let loggedBeacon:CLBeacon = notification.userInfo["beacon"] as CLBeacon
+        dealScreen.setupDealWithBeacon(loggedBeacon)
+        
+        self.window.rootViewController.presentViewController(dealScreen, animated: true, completion: nil)
+        
+    }
+
+    
     // MARK: CLLocationManager Delegate
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         // Update succeeded! Print locations:
-        if locations {
+        if (locations != nil) {
             print(locations)
         }
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         // Failed with error. Print error to the console.
-        if error {
+        if (error != nil) {
             print(error.description)
         }
     }

@@ -16,6 +16,7 @@
 		A950E4ED1991F8B90053F81A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A950E4EC1991F8B90053F81A /* Images.xcassets */; };
 		A950E4F91991F8B90053F81A /* BeaconatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E4F81991F8B90053F81A /* BeaconatorTests.swift */; };
 		A950E5031991FA450053F81A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A950E5021991FA450053F81A /* CoreBluetooth.framework */; };
+		A9B1B490199DAE2900AD48D7 /* UIColor+Beaconator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B1B48F199DAE2900AD48D7 /* UIColor+Beaconator.swift */; };
 		A9C22737199333E50021E86B /* BeaconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C22736199333E50021E86B /* BeaconDelegate.swift */; };
 		A9F2A8A3199942D20015130A /* DealScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2A8A2199942D20015130A /* DealScreen.swift */; };
 		A9F2A8A4199945890015130A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A950E5051991FB200053F81A /* CoreLocation.framework */; };
@@ -57,6 +58,7 @@
 		A950E4F81991F8B90053F81A /* BeaconatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconatorTests.swift; sourceTree = "<group>"; };
 		A950E5021991FA450053F81A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A950E5051991FB200053F81A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A9B1B48F199DAE2900AD48D7 /* UIColor+Beaconator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Beaconator.swift"; sourceTree = "<group>"; };
 		A9C22736199333E50021E86B /* BeaconDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDelegate.swift; sourceTree = "<group>"; };
 		A9F2A8A2199942D20015130A /* DealScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealScreen.swift; sourceTree = "<group>"; };
 		A9F2A8A5199945920015130A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -154,6 +156,7 @@
 		A950E4E21991F8B90053F81A /* Beaconator */ = {
 			isa = PBXGroup;
 			children = (
+				A9B1B48E199DADEB00AD48D7 /* Extensions */,
 				A907E62D1995EFCF0066BDE7 /* Models */,
 				A907E62A1993F5890066BDE7 /* Views */,
 				A907E6291993F5800066BDE7 /* Delegates */,
@@ -207,6 +210,14 @@
 				A950E5021991FA450053F81A /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9B1B48E199DADEB00AD48D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A9B1B48F199DAE2900AD48D7 /* UIColor+Beaconator.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 				A9F2A8BD199A7E430015130A /* Config.swift in Sources */,
 				A907E62F1995EFE70066BDE7 /* BCUser.swift in Sources */,
 				A950E4E61991F8B90053F81A /* AppDelegate.swift in Sources */,
+				A9B1B490199DAE2900AD48D7 /* UIColor+Beaconator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

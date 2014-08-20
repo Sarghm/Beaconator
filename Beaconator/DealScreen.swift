@@ -19,7 +19,7 @@ class DealScreen: UIViewController {
         
         detectedBeacon = beacon
         performDealQuery()
-        
+
     }
  
     func performDealQuery() {
@@ -31,7 +31,7 @@ class DealScreen: UIViewController {
         
         dealQuery.getFirstObjectInBackgroundWithBlock({
             (deal:PFObject!, error:NSError!) -> Void in
-            if !error {
+            if (error == nil) {
                 // Parse query succeeded - update screen with deal information
                 print("Success!")
                 self.dealTitleLabel.text = deal.valueForKey("deal_title") as String

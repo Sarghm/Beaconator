@@ -24,7 +24,7 @@ class MainMenu: UIViewController {
         beacon.mainMenu = self
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
     }
@@ -39,12 +39,29 @@ class MainMenu: UIViewController {
         
         // Setup the home view
         
-        statusLabel = UILabel(frame: CGRectMake(25, 25, self.view.bounds.width-50, self.view.bounds.height-50))
+        statusLabel = UILabel()
+        
+        // MARK: Auto-Layout
+        
+        // Deactivate conflicting view constraints to eliminate later issues
+        
+        statusLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         // Add views to stack
         
-        view.addSubview(statusLabel)
+        self.view.addSubview(statusLabel)
         
+        addConstraints()
+        
+    }
+    
+    // Add constraints
+    
+    func addConstraints() {
+        
+        self.view.addConstraint(NSLayoutConstraint(item: statusLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.LessThanOrEqual, toItem: self.view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 40))
+        self.view.addConstraint(NSLayoutConstraint(item: statusLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.TopMargin, multiplier: 1, constant: 40))
+        self.view.addConstraint(NSLayoutConstraint(item: statusLabel, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
     }
     
 

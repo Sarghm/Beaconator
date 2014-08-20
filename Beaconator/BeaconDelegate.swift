@@ -11,6 +11,7 @@ import CoreLocation
 
 class BeaconDelegate: NSObject, CLLocationManagerDelegate {
     
+    var app = UIApplication.sharedApplication()
     let locationManager = CLLocationManager()
     var mainMenu:MainMenu!
     let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "6B358BF5-8236-4523-BF02-0F8E2552BCC3"), identifier: "AppUUID")
@@ -52,14 +53,8 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         
     }
     
-    func fireLocalNotification() {
+    func fireLocalNotification(beacon:CLBeacon!) {
         // Found a region - push the notification and the voucher screen if the app is open
-        
-        var app = UIApplication.sharedApplication()
-        
-        // Check that the app is not already active before firing the notification - we don't want to fire it if the app's open
-        
-        if (app.applicationState != UIApplicationState.Active) {
         
         var notification = UILocalNotification()
         notification.alertAction = "Open Beaconator"
@@ -67,10 +62,21 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         currentStatus = "Discovered beacon!"
         notification.fireDate = nil
         
+        // Store the details of the deal in the user info as key/value pairs so that they can be fetched by the app at a later date if the user decides to
+
+        if (notification.userInfo != nil) {
+            notification.userInfo["beacon"] = beacon
+            print("User info exists - saved in existing dictionary.")
+        }
+            
+        else {
+            var notificationUserInfo:Dictionary<String, AnyObject>!
+            notificationUserInfo["beacon"] = beacon
+            print("User info does not exist - created a new dictionary!")
+        }
+        
         // Get active app instance and schedule the notification to trigger immediately
         app.scheduleLocalNotification(notification)
-            
-        }
     }
     
     // MARK: CLLocation Delegate
@@ -91,7 +97,8 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
         case CLAuthorizationStatus.Denied:
             
             currentStatus = "Authorization status denied!"
-            print("Denied!")
+            print("Denied access! Alert user that they need to allow BT access for the app to function.")
+            
             // Code for failed authorization - alert the user
             
         default:
@@ -122,9 +129,17 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
             let alert = UIAlertView(title: "Beacon found!", message: "Found beacon with UUID: \(discoveredBeacon.proximityUUID)", delegate: nil, cancelButtonTitle: "Awesome!")
             alert.show()
             
-            let dealScreen = DealScreen(nibName: nil, bundle: nil)
-            dealScreen.setupDealWithBeacon(discoveredBeacon)
-            mainMenu.presentViewController(dealScreen, animated: true, completion: nil)
+            // Present the view if the view is active. Otherwise, we're going to rely on the AppDelegate method to do this for us when it opens, responding to a deal
+            
+            if (app.applicationState == UIApplicationState.Active) {
+                let dealScreen = DealScreen(nibName: nil, bundle: nil)
+                dealScreen.setupDealWithBeacon(discoveredBeacon)
+                mainMenu.presentViewController(dealScreen, animated: true, completion: nil)
+            }
+                
+            else {
+                fireLocalNotification(discoveredBeacon)
+            }
             
         }
         
@@ -156,16 +171,11 @@ class BeaconDelegate: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         let alertView = UIAlertView(title: "Entered Region", message: "Entered. Current regions: \(manager.monitoredRegions)", delegate: nil, cancelButtonTitle: "Cool")
         alertView.show()
-        manager.startRangingBeaconsInRegion(region as CLBeaconRegion)
-        fireLocalNotification()
-        
     }
     
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
         let alertView = UIAlertView(title: "Exited Region", message: "Exited. Current regions: \(manager.monitoredRegions)", delegate: nil, cancelButtonTitle: "Cool")
         alertView.show()
-        manager.startRangingBeaconsInRegion(region as CLBeaconRegion)
-        
         // Exited region - close notification
     }
     
